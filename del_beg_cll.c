@@ -1,12 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-
 struct Node {
     int data;
     struct Node* next;
 };
-
 void deleteNodeAtBeginning(struct Node** head) {
     if (*head == NULL) {
         printf("List is empty. Unable to delete.\n");
@@ -54,7 +51,6 @@ int main() {
     } while (current != head);
     printf("\n");
     deleteNodeAtBeginning(&head);
-
     printf("Updated List: ");
     current = head;
     do {
@@ -62,6 +58,5 @@ int main() {
         current = current->next;
     } while (current != head);
     printf("\n");
-
     return 0;
 }
