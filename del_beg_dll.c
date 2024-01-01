@@ -25,7 +25,6 @@ void deleteFirstNode(struct Node** head) {
 }
 
 int main() {
-    // Create a sample doubly linked list
     struct Node* head = NULL;
     struct Node* second = NULL;
     struct Node* third = NULL;
@@ -46,7 +45,6 @@ int main() {
     third->prev = second;
     third->next = NULL;
 
-    // Print the original list
     struct Node* current = head;
     printf("Original list: ");
     while (current != NULL) {
@@ -55,10 +53,8 @@ int main() {
     }
     printf("\n");
 
-    // Delete the first node
     deleteFirstNode(&head);
 
-    // Print the updated list
     current = head;
     printf("Updated list: ");
     while (current != NULL) {
