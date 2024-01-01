@@ -10,17 +10,14 @@ struct Node
 void insertStart (struct Node **head, int data)
 {
 
-  // creating memory for newNode
   struct Node *newNode = (struct Node *) malloc (sizeof (struct Node));
 
-  // assigning newNode's next as the current head 
-  // Assign data & and make newNode's prev as NULL
+  
   newNode->data = data;
   newNode->next = *head;
   newNode->prev = NULL;
 
-  // if list already had item(s)
-  // We need to make current head previous node as this new node
+  
   if (*head != NULL)
     (*head)->prev = newNode;
 
@@ -46,13 +43,10 @@ void insertLast (struct Node **head, int data)
 
   struct Node *temp = *head;
 
-  // traverse till the last node
   while (temp->next != NULL)
     temp = temp->next;
 
-  // assign last node's next to this new Node
   temp->next = newNode;
-  // assign this new Node's previous to last node(temp)
   newNode->prev = temp;
 }
 
@@ -79,7 +73,6 @@ int main ()
 {
   struct Node *head = NULL;
 
-  // Need '&' i.e. address as we need to change head
   insertStart (&head, 1);
   insertStart (&head, 2);
   insertStart (&head, 3);
@@ -87,8 +80,6 @@ int main ()
   insertLast (&head, 10);
   insertLast (&head, 20);
 
-  // no need for '&' as head need not be changed
-  // only doing traversal
   display (head);
 
   return 0;
