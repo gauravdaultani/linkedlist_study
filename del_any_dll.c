@@ -8,29 +8,24 @@ struct Node {
     struct Node* next;
 };
 
-// Function to delete a node from the doubly linked list
 void deleteNode(struct Node** head, struct Node* delNode) {
     // If the node to be deleted is the head node
     if (*head == delNode) {
         *head = delNode->next;
     }
 
-    // If the node to be deleted is not the last node
     if (delNode->next != NULL) {
         delNode->next->prev = delNode->prev;
     }
 
-    // If the node to be deleted is not the first node
     if (delNode->prev != NULL) {
         delNode->prev->next = delNode->next;
     }
 
-    // Free the memory occupied by the node
     free(delNode);
 }
 
 int main() {
-    // Create a doubly linked list with three nodes
     struct Node* head = NULL;
     struct Node* second = NULL;
     struct Node* third = NULL;
@@ -51,7 +46,6 @@ int main() {
     third->prev = second;
     third->next = NULL;
 
-    // Print the original doubly linked list
     struct Node* current = head;
     printf("Original Doubly Linked List: ");
     while (current != NULL) {
@@ -60,10 +54,8 @@ int main() {
     }
     printf("\n");
 
-    // Delete the second node from the doubly linked list
     deleteNode(&head, second);
 
-    // Print the modified doubly linked list
     current = head;
     printf("Modified Doubly Linked List: ");
     while (current != NULL) {
