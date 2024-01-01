@@ -1,13 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Define the structure for a node in the circular linked list
 struct Node {
     int data;
     struct Node* next;
 };
 
-// Function to delete a node from the circular linked list
 void deleteNode(struct Node** head, int key) {
     if (*head == NULL) {
         printf("List is empty.\n");
@@ -17,7 +15,6 @@ void deleteNode(struct Node** head, int key) {
     struct Node* curr = *head;
     struct Node* prev = NULL;
 
-    // Find the node to be deleted
     while (curr->data != key) {
         if (curr->next == *head) {
             printf("Node with key %d not found.\n", key);
@@ -28,14 +25,12 @@ void deleteNode(struct Node** head, int key) {
         curr = curr->next;
     }
 
-    // If the node to be deleted is the only node in the list
     if (curr->next == *head && prev == NULL) {
         *head = NULL;
         free(curr);
         return;
     }
 
-    // If the node to be deleted is the first node
     if (curr == *head) {
         prev = *head;
         while (prev->next != *head) {
@@ -46,7 +41,6 @@ void deleteNode(struct Node** head, int key) {
         free(curr);
     }
 
-    // If the node to be deleted is not the first node
     else {
         prev->next = curr->next;
         free(curr);
@@ -55,7 +49,6 @@ void deleteNode(struct Node** head, int key) {
     printf("Node with key %d deleted successfully.\n", key);
 }
 
-// Function to print the circular linked list
 void printList(struct Node* head) {
     if (head == NULL) {
         printf("List is empty.\n");
@@ -71,7 +64,6 @@ void printList(struct Node* head) {
 }
 
 int main() {
-    // Create a circular linked list
     struct Node* head = NULL;
     struct Node* second = NULL;
     struct Node* third = NULL;
@@ -89,14 +81,11 @@ int main() {
     third->data = 3;
     third->next = head;
 
-    // Print the original list
     printf("Original list: ");
     printList(head);
 
-    // Delete a node from the list
     deleteNode(&head, 2);
 
-    // Print the updated list
     printf("Updated list: ");
     printList(head);
 
