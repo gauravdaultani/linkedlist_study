@@ -28,7 +28,6 @@ void deleteLastNode(struct Node** head) {
 }
 
 int main() {
-    // Create a sample doubly linked list
     struct Node* head = NULL;
     struct Node* second = NULL;
     struct Node* third = NULL;
@@ -49,7 +48,6 @@ int main() {
     third->prev = second;
     third->next = NULL;
 
-    // Print the original list
     struct Node* current = head;
     printf("Original List: ");
     while (current != NULL) {
@@ -58,10 +56,8 @@ int main() {
     }
     printf("\n");
 
-    // Delete the last node
     deleteLastNode(&head);
 
-    // Print the updated list
     current = head;
     printf("Updated List: ");
     while (current != NULL) {
